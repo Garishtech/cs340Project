@@ -9,7 +9,7 @@ As you are already aware, you can use any web technology platform for your CS340
 
 <p>So, if you decide to use anything other than the NodeJS sample app, the queries to run, in the right order, are</p>
 
-DROP TABLE IF EXISTS diagnostic;
-CREATE TABLE diagnostic(id INT PRIMARY KEY, text VARCHAR(255) NOT NULL);
-INSERT INTO diagnostic (text) VALUES ("MySQL is working");
-SELECT * FROM diagnostic;
+<p>DROP TABLE IF EXISTS diagnostic;</p>
+<p>CREATE TABLE diagnostic(id INT PRIMARY KEY, text VARCHAR(255) NOT NULL);</p>
+<p>INSERT INTO diagnostic (text) VALUES ("MySQL is working");</p>
+<p>SELECT * FROM diagnostic;</p>
