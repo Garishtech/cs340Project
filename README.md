@@ -7,7 +7,7 @@ If you follow the NodeJS guide (Links to an external site.)Links to an external 
 
 As you are already aware, you can use any web technology platform for your CS340 project so long as 1) you do not use ORMs, (Links to an external site.)Links to an external site. and 2) you write all your SQL queries yourself. The class will officially host content on NodeJS but I am happy to help with Python, PHP, or Ruby.
 
-So, if you decide to use anything other than the NodeJS sample app, the queries to run, in the right order, are
+<p>So, if you decide to use anything other than the NodeJS sample app, the queries to run, in the right order, are</p>
 
 DROP TABLE IF EXISTS diagnostic;
 CREATE TABLE diagnostic(id INT PRIMARY KEY, text VARCHAR(255) NOT NULL);
