@@ -7,9 +7,41 @@ var fs = require('fs');
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars')
+app.set('port', process.argv[2]);
 
 app.use(express.static('public'));
 
+//Index/main page
 app.get('/', function(req,res,next){
 		res.status(200).render('index');
 });
+
+//Phone page
+app.get('/phone'), function(req, res, next){
+		res.status(200).render('phone');
+}
+//Owner page
+
+//Carrier page
+
+//Manufacturer page
+
+
+//Error pages
+app.use(function(req,res){
+	res.status(404);
+	res.render('404');
+  });
+  
+app.use(function(err, req, res, next){
+	console.error(err.stack);
+	res.status(500);
+	res.render('500');
+});
+
+//Will listen on whatever port is supplied on the command line
+app.listen(app.get('port'), function(){
+	console.log('Express started on http://localhost:' + app.get('port'));
+});
+  
+
