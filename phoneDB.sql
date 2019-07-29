@@ -31,8 +31,8 @@ CREATE TABLE `ph_phone` (
 
 LOCK TABLES `ph_phone` WRITE;
 /*!40000 ALTER TABLE `ph_phone` DISABLE KEYS */;
-INSERT INTO `ph_phone` VALUES ( 0, 'E4',     5, 16, '', 'Motorola'),
-                              ( 1, 'Ascend', 6, 9,  '', 'Huawei');
+INSERT INTO `ph_phone` VALUES ( 0, 'E4',     5, 16, '', 0),
+                              ( 1, 'Ascend', 6, 9,  '', 1);
 /*!40000 ALTER TABLE `ph_phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,14 +58,47 @@ INSERT INTO `ph_owner` VALUES ( 0, 'Naomi',    'Hull'),
                               ( 2, 'Cristian', 'Mann');
 /*!40000 ALTER TABLE `ph_owner` ENABLE KEYS */;
 UNLOCK TABLES;
+
 --
 -- Table structure for `ph_carrier`
 --
 
+DROP TABLE IF EXISTS `ph_carrier`
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ph_carrier` (
+    `id`           int(11)      NOT     NULL AUTO_INCREMENT,
+    `name`         varchar(255) NOT     NULL,
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `ph_carrier`
+/*!40000 ALTER TABLE `ph_carrier` DISABLE KEYS */;
+INSERT INTO `ph_carrier` VALUES ( 0, 'Republic');
+/*!40000 ALTER TABLE `ph_carrier` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
 --
--- Table structure for `ph_manufacturer`
+-- Table structure for `ph_man`
 --
 
+DROP TABLE IF EXISTS `ph_man`
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ph_man` (
+    `id`           int(11)      NOT     NULL AUTO_INCREMENT,
+    `name`         varchar(255) NOT     NULL,
+    `model`        varchar(255) DEFAULT NULL,
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `ph_man`
+/*!40000 ALTER TABLE `ph_man` DISABLE KEYS */;
+INSERT INTO `ph_man` VALUES ( 0, 'Motorola', 'E4'),
+                            ( 1, 'Huawei',   'Ascend');
+/*!40000 ALTER TABLE `ph_man` ENABLE KEYS */;
+UNLOCK TABLES;
