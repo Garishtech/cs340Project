@@ -32,7 +32,8 @@ CREATE TABLE `ph_phone` (
 LOCK TABLES `ph_phone` WRITE;
 /*!40000 ALTER TABLE `ph_phone` DISABLE KEYS */;
 INSERT INTO `ph_phone` VALUES ( 0, 'E4',     5, 16, '', 0),
-                              ( 1, 'Ascend', 6, 9,  '', 1);
+                              ( 1, 'Ascend', 6, 9,  '', 1),
+                              ( 2, 'G5',     6, 16, '', 2);
 /*!40000 ALTER TABLE `ph_phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,4 +102,26 @@ LOCK TABLES `ph_man`
 INSERT INTO `ph_man` VALUES ( 0, 'Motorola', 'E4'),
                             ( 1, 'Huawei',   'Ascend');
 /*!40000 ALTER TABLE `ph_man` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- phone to owner
+--
+
+DROP TABLE IF EXISTS `ph_phone_owner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ph_phone_owner` (
+    `pid` int(11) NOT NULL DEFAULT '0',
+    `oid` int(11) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`pid`, `oid`),
+    KEY `oid` (`oid`),
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `ph_phone_owner` WRITE;
+/*!40000 ALTER TABLE `ph_phone_owner` DISABLE KEYS */;
+INSERT INTO `ph_phone_owner` VALUES ( 2, 0 ),
+                                    ( 0, 1 );
+/*!40000 ALTER TABLE `ph_phone_owner` ENABLE KEYS */;
 UNLOCK TABLES;
