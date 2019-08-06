@@ -15,7 +15,7 @@
 -- Table structure for `ph_phone`
 --
 
-DROP TABLE IF EXISTS `ph_phone`
+DROP TABLE IF EXISTS `ph_phone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ph_phone` (
@@ -41,7 +41,7 @@ UNLOCK TABLES;
 -- Table structure for `ph_owner`
 --
 
-DROP TABLE IF EXISTS `ph_owner`
+DROP TABLE IF EXISTS `ph_owner`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ph_owner` (
@@ -64,7 +64,7 @@ UNLOCK TABLES;
 -- Table structure for `ph_carrier`
 --
 
-DROP TABLE IF EXISTS `ph_carrier`
+DROP TABLE IF EXISTS `ph_carrier`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ph_carrier` (
@@ -86,7 +86,7 @@ UNLOCK TABLES;
 -- Table structure for `ph_man`
 --
 
-DROP TABLE IF EXISTS `ph_man`
+DROP TABLE IF EXISTS `ph_man`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ph_man` (
@@ -115,13 +115,49 @@ CREATE TABLE `ph_phone_owner` (
     `pid` int(11) NOT NULL DEFAULT '0',
     `oid` int(11) NOT NULL DEFAULT '0',
     PRIMARY KEY (`pid`, `oid`),
-    KEY `oid` (`oid`),
+    KEY `oid` (`oid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `ph_phone_owner` WRITE;
+LOCK TABLES `ph_phone_owner`;
 /*!40000 ALTER TABLE `ph_phone_owner` DISABLE KEYS */;
 INSERT INTO `ph_phone_owner` VALUES ( 2, 0 ),
                                     ( 0, 1 );
 /*!40000 ALTER TABLE `ph_phone_owner` ENABLE KEYS */;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `ph_phone_carrier`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ph_phone_carrier` (
+    `pid` int(11) NOT NULL DEFAULT '0',
+    `cid` int(11) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`pid`, `cid`),
+    KEY `oid` (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `ph_phone_carrier`;
+/*!40000 ALTER TABLE `ph_phone_carrier` DISABLE KEYS */;
+INSERT INTO `ph_phone_carrier` VALUES ( 0, 0 ),
+                                      ( 2, 0 );
+/*!40000 ALTER TABLE `ph_phone_carrier` ENABLE KEYS */;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `ph_owner_carrier`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ph_owner_carrier` (
+    `oid` int(11) NOT NULL DEFAULT '0',
+    `cid` int(11) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`oid`, `cid`),
+    KEY `oid` (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `ph_owner_carrier`;
+/*!40000 ALTER TABLE `ph_owner_carrier` DISABLE KEYS */;
+INSERT INTO `ph_owner_carrier` VALUES ( 2, 0 ),
+                                      ( 0, 1 );
+/*!40000 ALTER TABLE `ph_owner_carrier` ENABLE KEYS */;
 UNLOCK TABLES;
