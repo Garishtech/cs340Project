@@ -17,15 +17,8 @@ app.get('/', function(req,res,next){
 });
 
 //Phone page
-app.get('/phone'), function(req, res, next){
-		res.status(200).render('phone');
-}
+
 //Owner page
-
-//Carrier page
-
-//Manufacturer page
-
 
 //Error pages
 app.use(function(req,res){
@@ -40,8 +33,9 @@ app.use(function(err, req, res, next){
 });
 
 //Will listen on whatever port is supplied on the command line
-app.listen(app.get('port'), function(){
-	console.log('Express started on http://localhost:' + app.get('port'));
+app.listen(app.get('port'), function(err){
+	if(!err)
+		console.log('http://localhost:' + app.get('port'));
 });
   
 
