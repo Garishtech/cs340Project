@@ -1,42 +1,28 @@
-<h2>Welcome to our phone database! To manage or add a phone, owner, manufacturer, or carrier, click their respective tab in the navbar.</h2>
+<h2>Welcome to our phone database! Operations available are Add, Delete,and Manage. Entities available to be changed are Phone and Owner.</h2>
 <main>
+
 <nav class="navbar">
     <ul class="navlist">
       <li class="navitem navlink"><a href="/phone">Phone</a></li>
       <li class="navitem navlink"><a href="/owner">Owner</a></li>
     </ul>
 </nav>
-<div>
 
-<h3>Add a Phone</h3>
-<form calss="query">
-    Phone Model: <input type="text" name="modelAdd">
-    Carrier: <input type="text" name="carrierAdd">
-    Owner First Name: <input type="text" name="fnameAdd">
-    Owner Last Name: <input type="text" name="lnameAdd">
-    <input type="submit" value="Submit">
-</form>
+<div class="selectOptions">
+<select class="selectOperation">
+   <option>Choose Operation</option>
+   <option>Add</option>
+   <option>Delete</option>
+   <option>Manage</option>
+</select>
 
-<h3>Manage a Phone</h3>
-<form calss="query">
-    Phone ID: <input type="text" name="pidManage">
-    Owner First Name: <input type="text" name="fnameManage">
-    Owner Last Name: <input type="text" name="lnameManage">
-    <input type="submit" value="Submit">
-</form>
-
-<h3>Delete a Phone</h3>
-<form class="query">
-    Phone ID: <input type="text" name="pidDelete">
-    Owner First Name: <input type="text" name="fnameDelete">
-    Owner Last Name: <input type="text" name="lnameDelete">
-    <input type="submit" value="Submit">
-</form>
-
-<h3>Add an Owner</h3>
-<h3>Manage an Owner</h3>
-<h3>Delete an Owner</h3>
+<select class="selectEntity">
+   <option>Choose Entity</option>
+   <option>Phone</option>
+   <option>Owner</option>
+</select>
 </div>
 
+<div class="propertyFields"></div>
 
 </main>
