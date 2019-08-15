@@ -1,0 +1,43 @@
+<html>
+{{#each foo}}
+{{this}}
+{{/each}}
+<h3>Add new phone:</h3>
+<from id="addphone" action="/phone" method="post">
+    Model: <input type="text" name="model"><br>
+    Type: <input type="text" name="type"><br>
+    Screen Size: <input type="number" name="screen_size><br>
+    Internal Storage: <input type="number" name="in_storage><br>
+    External Storage: <input type="number" name="ex_storage><br>
+    Manufacturer: <input type="number" name="manufacturer><br>
+    </form>
+<br/>
+
+
+
+
+
+<h3>Current Phones:</h3>
+<table>
+    <thead>
+        <th>Model</th>
+        <th>Type</th>
+        <th>Screen Size</th>
+        <th>Internal Storage</th>
+        <th>External Storage</th>
+        <th>Manufacturer</th>
+    </thead>
+    <tbody>
+        {{#each people}}
+        <tr>
+            <td>{{model}}</td>
+            <td>{{type}}</td>
+            <td>{{screen_size}}</td>
+            <td>{{in_storage>}}</td>
+            <td>{{ex_storage}}</td>
+            <td>{{manufacturer}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</html>
