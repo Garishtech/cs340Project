@@ -34,13 +34,13 @@ module.exports = function() {
         //var mysql = req.app.get('mysql');
         mysql.pool.query('SELECT * FROM ph_phone', function(err, rows, fields) {
             context.results = JSON.stringify(rows);
-            res.render('home', context);
+            res.render('phone', context);
         });
         //getPhones(res, mysql, context, complete);
         function complete() {
             callbackCount++;
             if (callbackCount >= 1) {
-                res.render('home', context.phones);
+                res.render('phone', context.phones);
             }
         }
     });
