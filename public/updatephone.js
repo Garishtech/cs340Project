@@ -1,6 +1,6 @@
 function updatePhone(id) {
     $.ajax({
-        url: '/people/' + id,
+        url: '/phone/' + id,
         type: 'PUT',
         data: $('#update-phone').serialize(),
         success: function(result) {

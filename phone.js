@@ -47,7 +47,6 @@ module.exports = function() {
     });
 
     router.delete('/:id', function(req, res) {
-        console.log("delete");
         var sql = "DELETE FROM ph_phone WHERE id = ?";
         var inserts = [req.params.id];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
