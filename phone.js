@@ -28,21 +28,12 @@ module.exports = function() {
     }
 
     router.get('/', function(req, res) {
-        var callbackCount = 0;
         var context = {};
         context.jsscripts = ["deletephone.js"];
-        //var mysql = req.app.get('mysql');
         mysql.pool.query('SELECT * FROM ph_phone', function(err, rows, fields) {
-            context.results = JSON.stringify(rows);
+            context.results = rows;
             res.render('phone', context);
         });
-        //getPhones(res, mysql, context, complete);
-        function complete() {
-            callbackCount++;
-            if (callbackCount >= 1) {
-                res.render('phone', context.phones);
-            }
-        }
     });
 
 
