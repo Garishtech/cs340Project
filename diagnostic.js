@@ -29,7 +29,7 @@ app.get('/',function(req,res,next){
 	  mysql.pool.query('INSERT INTO diagnostic (`text`) VALUES ("MySQL is Working!")',function(err){
 	    mysql.pool.query('SELECT * FROM ph_phone', function(err, rows, fields){
 		  context.results = JSON.stringify(rows);
-		  res.render('home',context);
+		  res.render('index',context);
 		});
 	  });
     });

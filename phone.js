@@ -78,7 +78,7 @@ module.exports = function() {
     router.put('/:id', function(req, res) {
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATDE ph_phone SET model=?, screen_size=?, in_storage=?, ex_storage=?, manufacturer=? WHERE id=?";
+        var sql = "UPDATE ph_phone SET model=?, screen_size=?, in_storage=?, ex_storage=?, manufacturer=? WHERE id=?";
         var inserts = [req.body.model, req.body.screen_size, req.body.in_storage, req.body.ex_storage, req.body.manufacturer, req.params.id];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
             if(error) {
