@@ -12,7 +12,7 @@
         {{#each man}}
         <option value="{{id}}">{{name}}</option>
         {{/each}}
-    </select><br>
+    </select><a href="/manufacturer"> New</a><br>
     <input type="submit" value ="Submit">
     </form>
 <br/>
@@ -38,8 +38,8 @@
             <td>{{in_storage}}</td>
             <td>{{ex_storage}}</td>
             <td>{{name}}</td>
-            <td><button onclick="deletePhone({{id}})">Delete</button></td>
-            <td><a href="/phone/{{id}}">Update</a></td>
+            <td><button onclick="deletePhone({{id}})"> Delete</button></td>
+            <td><a href="/phone/{{id}}"> Update</a></td>
         </tr>
         {{/each}}
     </tbody>

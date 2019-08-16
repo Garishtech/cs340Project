@@ -3,15 +3,13 @@ module.exports = function() {
     var router  = express.Router();
     var mysql = require('./dbcon.js');
 
-
-
     router.get('/', function(req, res) {
         var context = {};
         context.jsscripts = ["deletephone.js"];
         mysql.pool.query('SELECT * FROM ph_man', function(erro, rows, fields) {
             context.man = rows;
         });
-        mysql.pool.query('SELECT p.model, screen_size, in_storage, ex_storage, name FROM ph_phone p left join ph_man m on m.id = p.manufacturer', function(err, rows, fields) {
+        mysql.pool.query('SELECT p.id, p.model, screen_size, in_storage, ex_storage, name FROM ph_phone p left join ph_man m on m.id = p.manufacturer', function(err, rows, fields) {
             context.results = rows;
             res.render('phone', context);
         });
@@ -39,6 +37,12 @@ module.exports = function() {
             }
         }
     });
+
+    router.get('/new_manufacturer', function(req, res) {
+        res.redirect('/phone');
+    });
+
+
 
     router.delete('/:id', function(req, res) {
         var sql = "DELETE FROM ph_phone WHERE id = ?";
@@ -68,6 +72,7 @@ module.exports = function() {
             }
         });
     });
+
 
     router.put('/:id', function(req, res) {
         console.log(req.body)
