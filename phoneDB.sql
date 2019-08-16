@@ -33,7 +33,7 @@ LOCK TABLES `ph_phone` WRITE;
 /*!40000 ALTER TABLE `ph_phone` DISABLE KEYS */;
 INSERT INTO `ph_phone` VALUES ( 0, 'E4',     5, 16, '', 0),
                               ( 1, 'Ascend', 6, 9,  '', 1),
-                              ( 2, 'G5',     6, 16, '', 2);
+                              ( 2, 'G5',     6, 16, '', 0);
 /*!40000 ALTER TABLE `ph_phone` ENABLE KEYS */;
 UNLOCK TABLES;
 

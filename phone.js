@@ -4,23 +4,14 @@ module.exports = function() {
     var mysql = require('./dbcon.js');
 
 
-    function getAphone(res, mysql, context, id, complete) {
-        var sql = "SELECT model, screen_size, in_storage, ex_storage, manufacturer FROM ph_phone where id = ?";
-        var inserts = [id];
-        mysql.pool.query(sql, inserts, function(error, results, fields) {
-            if(error) {
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.results = results[0];
-            complete();
-        });
-    }
 
     router.get('/', function(req, res) {
         var context = {};
         context.jsscripts = ["deletephone.js"];
-        mysql.pool.query('SELECT * FROM ph_phone', function(err, rows, fields) {
+        mysql.pool.query('SELECT * FROM ph_man', function(erro, rows, fields) {
+            context.man = rows;
+        });
+        mysql.pool.query('SELECT p.model, screen_size, in_storage, ex_storage, name FROM ph_phone p left join ph_man m on m.id = p.manufacturer', function(err, rows, fields) {
             context.results = rows;
             res.render('phone', context);
         });
@@ -32,6 +23,9 @@ module.exports = function() {
         var context = {};
         context.jsscripts = ["selectedphone.js", "updatephone.js"];
         //var inserts = [id];
+        mysql.pool.query('SELECT * FROM ph_man', function(erro, rows, fields) {
+            context.man = rows;
+        });
         mysql.pool.query('SELECT * FROM ph_phone WHERE id = ?', req.params.id, function(err, rows, fields) {
             context.results = rows[0];
             res.render('update-phone', context);
