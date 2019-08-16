@@ -52,7 +52,7 @@ module.exports = function() {
     });
 
     router.post('/', function(req, res) {
-        var mysql = req.app.get('mysql');
+        //var mysql = req.app.get('mysql');
         var sql = "INSERT INTO ph_phone(model, screen_size, in_storage, ex_storage, manufacturer) VALUES (?, ?, ?, ?, ?)";
         var inserts = [req.body.model, req.body.screen_size, req.body.in_storage, req.body.ex_storage, req.body.manufacturer];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
@@ -60,7 +60,7 @@ module.exports = function() {
                 res.write(JSON.stringify(error));
                 res.end();
             } else {
-                res.redirect('/people');
+                res.redirect('/phone');
             }
         });
     });
