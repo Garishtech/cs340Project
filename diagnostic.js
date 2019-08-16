@@ -38,6 +38,7 @@ app.get('/',function(req,res,next){
 
 app.use('/phone/', require('./phone.js'));
 app.use('/manufacturer/', require('./man.js'));
+app.use('/owner/', require('./owner.js'));
 
 app.use(function(req,res){
   res.status(404);
