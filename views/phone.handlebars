@@ -27,6 +27,7 @@
         <th>Manufacturer</th>
     </thead>
     <tbody>
+        <p>{{results}}</p>
         {{#each results}}
         <tr>
             <td>{{model}}</td>
@@ -34,6 +35,8 @@
             <td>{{in_storage}}</td>
             <td>{{ex_storage}}</td>
             <td>{{manufacturer}}</td>
+            <td><button onclick="delete({{id}})">Delete</button></td>
+            <td><a href="/phone/{{id}}">Update</a></td>
         </tr>
         {{/each}}
     </tbody>
