@@ -30,7 +30,7 @@ module.exports = function() {
     router.get('/:id', function(req, res) {
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedphone.js", "updateperson.js"];
+        context.jsscripts = ["selectedphone.js", "updatephone.js"];
         //var inserts = [id];
         mysql.pool.query('SELECT * FROM ph_phone WHERE id = ?', req.params.id, function(err, rows, fields) {
             context.results = rows[0];
@@ -80,7 +80,7 @@ module.exports = function() {
         console.log(req.body)
         console.log(req.params.id)
         var sql = "UPDATDE ph_phone SET model=?, screen_size=?, in_storage=?, ex_storage=?, manufacturer=? WHERE id=?";
-        var inserts = [req.body.model, req.body.screen_size, req.body.in_storage, req.body.ex_storage, req.body.manufacturer];
+        var inserts = [req.body.model, req.body.screen_size, req.body.in_storage, req.body.ex_storage, req.body.manufacturer, req.params.id];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
             if(error) {
                 console.log(error)
